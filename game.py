@@ -8,6 +8,7 @@ from rich import print
 from rich.prompt import Prompt
 from rich.panel import Panel
 from rich.console import Console
+from level1 import level1
 
 console = Console()
 
@@ -49,6 +50,12 @@ def boot_screen():
     console.print("[cyan]Welcome, Agent_47.[/cyan]")
     console.print("Type [yellow]help[/yellow] to see the available commands.\n")
 
+
+
+def start_game():
+    console.print("[bold cyan]Starting new game...[/bold cyan]")
+    level1()
+
 def main_menu():
     try:
         while True:
@@ -66,10 +73,6 @@ def main_menu():
                 console.print("[red]Unknown command. Type 'help'[/red]")
     except KeyboardInterrupt:
         console.print("\n[bold red]User exited with ctrl+c.[/bold red]")
-
-def start_game():
-    console.print("[bold cyan]Starting new game...[/bold cyan]")
-    level1()
 
 if __name__ == "__main__":
     try:
