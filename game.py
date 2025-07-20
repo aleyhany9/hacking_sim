@@ -54,7 +54,10 @@ def boot_screen():
 
 def start_game():
     console.print("[bold cyan]Starting new game...[/bold cyan]")
+    time.sleep(0.3)
+    console.print("\n[bold magenta]== LEVEL 1 STARTING ==[/bold magenta]")
     level1()
+
 
 def main_menu():
     try:
@@ -67,7 +70,7 @@ def main_menu():
             elif command == "start":
                 start_game()
             elif command == "exit":
-                console.print("[red]Exiting HACKNET...[/red]")
+                console.print("[red]Exiting hacking sim...[/red]")
                 break
             else:
                 console.print("[red]Unknown command. Type 'help'[/red]")

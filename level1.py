@@ -3,6 +3,7 @@ def level1():
     from rich import print
     from rich.prompt import Prompt
     import time
+    from level2 import level2
 
     word_list = [
         "control", "hacking", "network", "access", "system",
@@ -28,11 +29,13 @@ def level1():
         if guess not in possible_words:
             print("[red]Invalid word. Try one from the list above.[/red]")
             continue
-
+    
         match_count = sum(1 for a, b in zip(guess, correct_password)if a == b)
 
         if guess == correct_password:
             print("[bold green]\nACCESS GRANTED[/bold green]")
+            time.sleep(0.5)
+            level2()
             break
         else:
             attempts -= 1
