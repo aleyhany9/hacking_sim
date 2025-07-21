@@ -10,6 +10,7 @@ from rich.prompt import Prompt
 from rich.panel import Panel
 from rich.console import Console
 from rich.table import Table
+from level3 import level3
 
 console = Console()
 
@@ -61,5 +62,5 @@ def level2():
         bar = "|" * (i // 10) + "|" * ((100 - i) // 10)
         console.print(f"[blue][{bar}][/blue] {i}%", end="\r")
         time.sleep(0.3)
-    console.print("[green]\nConnection stable. Proceeding...[/green]\n")    
-            
+    console.print("[green]\nConnection stable. Proceeding...[/green]\n") 
+    level3()   

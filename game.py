@@ -51,7 +51,6 @@ def boot_screen():
     console.print("Type [yellow]help[/yellow] to see the available commands.\n")
 
 
-
 def start_game():
     console.print("[bold cyan]Starting new game...[/bold cyan]")
     time.sleep(0.3)
