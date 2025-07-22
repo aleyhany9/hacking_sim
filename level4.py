@@ -4,6 +4,7 @@ from rich import print
 from rich.prompt import Prompt
 from rich.console import Console
 from rich.panel import Panel
+from level5 import level5
 
 console = Console()
 
@@ -36,3 +37,4 @@ def level4():
 
     console.print("\n[bold magenta]Level 4 Complete![/bold magenta]\nPrepare for the next challenge...")
     time.sleep(0.5)
+    level5()
