@@ -1,9 +1,13 @@
 def level1():
     from random import choice, sample
     from rich import print
+    from rich.console import Console
     from rich.prompt import Prompt
+    from rich.panel import Panel
     import time
     from level2 import level2
+
+    console = Console()
 
     word_list = [
         "control", "hacking", "network", "access", "system",
@@ -35,6 +39,8 @@ def level1():
         if guess == correct_password:
             print("[bold green]\nACCESS GRANTED[/bold green]")
             time.sleep(0.5)
+            console.print("\n[bold magenta]Level 1 Complete![/bold magenta]\nPrepare for the next challenge...")
+            time.sleep(1.5)
             level2()
             break
         else:

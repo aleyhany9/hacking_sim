@@ -63,4 +63,5 @@ def level2():
         console.print(f"[blue][{bar}][/blue] {i}%", end="\r")
         time.sleep(0.3)
     console.print("[green]\nConnection stable. Proceeding...[/green]\n") 
+    console.print("\n[bold magenta]Level 2 Complete![/bold magenta]\nPrepare for the next challenge...")
     level3()   

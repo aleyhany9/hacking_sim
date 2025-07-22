@@ -3,6 +3,8 @@ import random
 from rich import print
 from rich.prompt import Prompt
 from rich.console import Console
+from rich.panel import Panel
+from level4 import level4
 
 console = Console()
 
@@ -29,7 +31,7 @@ def level3():
                 ("root", "hunter2")
             ] 
 
-            console.print("[yellow]Attemption login...[/yellow]")
+            console.print("[yellow]Attempting login...[/yellow]")
             time.sleep(1)
 
             for username, password in attempts[:-1]:
@@ -42,6 +44,8 @@ def level3():
 
             console.print("[green]Welcome to the system, Agent_47.[/green]")
             console.print("[cyan]Type 'whoami', 'ls', or 'exit' to interact.[/cyan]")
+            console.print("[yellow]Type 'exit' to disconnect and proceed to the next level.[/yellow]")
+
 
             while True:
                 cmd = Prompt.ask("ssh@target").strip().lower()
@@ -51,6 +55,8 @@ def level3():
                     console.print("documents/  secrets.txt  logs/")
                 elif cmd == "exit":
                     console.print("[red]Exiting SSH session...[/red]")
+                    console.print("\n[bold magenta]Level 3 Complete![/bold magenta]\nPrepare for the next challenge...")
+                    level4()
                     break
                 else:
                     console.print("[red]Command not found[/red]")
