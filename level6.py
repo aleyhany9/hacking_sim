@@ -22,14 +22,27 @@ def level6():
 
             console.print("\n[bold green]Scan complete. Vulnerabilities found:[/bold green]")
             vulns = [
-                "CVE-2021-3156 (sudo heap overflow)",
-                "CVE-2020-1472 (ZeroLogon)",
-                "CVE-2019-0708 (BlueKeep)",
-                "CVE-2023-23397 (Outlook Privilege Escalation)"
+                ("CVE-2021-3156", "sudo heap overflow"),
+                ("CVE-2020-1472", "ZeroLogon"),
+                ("CVE-2019-0708", "BlueKeep"),
+                ("CVE-2023-23397", "Outlook Privilege Escalation")
             ]
             for v in vulns:
                 console.print(f"[red]> {v}[/red]")
             break
         else:
             console.print("[red]Unkown command. Type 'start scanning'[/red]")  
-            
+    
+    console.print("\n[cyan]Select a CVE to exploit (e.g., CVE-2023-23397)[/cyan]")
+    while True:
+        choice = Prompt.ask("exploit>").strip().upper()
+        if choice == "CVE-2023-23397":
+            console.print("\n[bold green]Exploiting...[/bold green]")
+            time.sleep(1.5)
+            console.print("[bold cyan]Exploit succesful! Admin shell access granted.[/bold cyan]")
+            console.print("[green]Level 6 complete.[/green]")
+            break
+        elif any(choice == cve for cve, _ in vulns):
+            console.print("[red]Exploit failed. No effect on target.[/red]")
+        else:
+            console.print("[red]Invalid CVE ID. Try again.[/red]")
