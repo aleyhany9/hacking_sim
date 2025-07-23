@@ -29,7 +29,7 @@ def level4():
 
     console.print(f"\n[bold cyan]Extracting '{selected}'...[/bold cyan]")
     for i in range(0, 101, 25):
-        bar = "||" * (i // 10)
+        bar = "|" * (i // 10)
         console.print(f"[blue][{bar:<10}][/blue] {i}%")
         time.sleep(0.3)
     console.print(f"\n[bold green]{selected} successfully extracted![/bold green]")

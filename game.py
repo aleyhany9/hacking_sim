@@ -53,7 +53,7 @@ def boot_screen():
 
 def start_game():
     console.print("[bold cyan]Starting new game...[/bold cyan]")
-    time.sleep(0.3)
+    time.sleep(1)
     console.print("\n[bold magenta]== LEVEL 1 STARTING ==[/bold magenta]")
     level1()
 

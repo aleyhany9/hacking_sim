@@ -55,7 +55,8 @@ def level3():
                     console.print("documents/  secrets.txt  logs/")
                 elif cmd == "exit":
                     console.print("[red]Exiting SSH session...[/red]")
-                    console.print("\n[bold magenta]Level 3 Complete![/bold magenta]\nPrepare for the next challenge...")
+                    console.print("\n[bold magenta]Level 3 Complete![/bold magenta]\nPrepare for the next challenge...\n")
+                    time.sleep(1)
                     level4()
                     break
                 else:

@@ -2,6 +2,7 @@ import time
 from rich import print
 from rich.prompt import Prompt
 from rich.console import Console
+from level6 import level6
 
 console = Console()
 
@@ -23,6 +24,8 @@ def level5():
 
     if guess == original_password:
         console.print("[bold green]Correct! You've cracked the hash.[/bold green]")
-        console.print("[cyan]Level 5 Complete! Get ready for the next mession..[/cyan]")
+        console.print("[cyan]Level 5 Complete! Get ready for the next mession..[/cyan]\n")
+        time.sleep(1)
+        level6()
     else:
         console.print("[bold red]Wrong password. Try again later.[/bold red]")

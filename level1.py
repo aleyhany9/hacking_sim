@@ -39,7 +39,7 @@ def level1():
         if guess == correct_password:
             print("[bold green]\nACCESS GRANTED[/bold green]")
             time.sleep(0.5)
-            console.print("\n[bold magenta]Level 1 Complete![/bold magenta]\nPrepare for the next challenge...")
+            console.print("[bold magenta]Level 1 Complete![/bold magenta]\nPrepare for the next challenge...")
             time.sleep(1.5)
             level2()
             break

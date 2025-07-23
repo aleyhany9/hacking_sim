@@ -16,13 +16,13 @@ console = Console()
 
 def level2():
     console.print("\n[bold magenta]== LEVEL 2 STARTING ==[/bold magenta]")
-    console.print("\n[bold cyan]== INITIATING NETWORK SCAN ==[/bold cyan]")
+    console.print("[bold cyan]== INITIATING NETWORK SCAN ==[/bold cyan]")
     target_ip = Prompt.ask("[green]Enter target IP[/green]", default="192.169.1.5")
 
     console.print(f"[yellow]Scanning ports on {target_ip}...[/yellow]")
     for i in range(0, 101, 20):
-        bar = "|" * (i // 10) + "|" * ((100 - i) // 10)
-        console.print(f"[blue][{bar}][/blue] {i}%")
+        bar = "|" * (i // 5)
+        console.print(f"[blue][{bar:<20}][/blue] {i}%")
         time.sleep(0.3)
 
     table = Table(title="Scan Results")
@@ -59,9 +59,10 @@ def level2():
 
     console.print("\n[bold cyan]Establishing secure channel...[/bold cyan]")
     for i in range(0, 101, 20):
-        bar = "|" * (i // 10) + "|" * ((100 - i) // 10)
-        console.print(f"[blue][{bar}][/blue] {i}%", end="\r")
+        bar = "|" * (i // 5)
+        console.print(f"[blue][{bar:<20}][/blue] {i}%")
         time.sleep(0.3)
-    console.print("[green]\nConnection stable. Proceeding...[/green]\n") 
-    console.print("\n[bold magenta]Level 2 Complete![/bold magenta]\nPrepare for the next challenge...")
+    console.print("[green]\nConnection stable. Proceeding...[/green]") 
+    console.print("[bold magenta]Level 2 Complete![/bold magenta]\nPrepare for the next challenge...\n")
+    time.sleep(1.5)
     level3()   
