@@ -11,7 +11,7 @@ console = Console()
 
 def level3():
     console.print("\n[bold magenta]== LEVEL 3 STARTING ==[/bold magenta]")
-    time.sleep(0.5)
+    time.sleep(1)
     console.print("[bold cyan]== BRUTE-FORCING SSH LOGIN ==[/bold cyan]")
     time.sleep(0.5)
     console.print("[bold cyan]Type 'start brute force' to initiate SSH attack[/bold cyan]")

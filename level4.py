@@ -11,7 +11,7 @@ console = Console()
 
 def level4():
     console.print("\n[bold magenta]== LEVEL 4: FILE EXTRACTION ==[/bold magenta]")
-    time.sleep(0.5)
+    time.sleep(1)
 
     console.print("[cyan]Listing available files on remote machine...[/cyan]")
     time.sleep(1)

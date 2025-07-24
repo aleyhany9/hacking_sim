@@ -17,6 +17,7 @@ console = Console()
 
 def level2():
     console.print("\n[bold magenta]== LEVEL 2 STARTING ==[/bold magenta]")
+    time.sleep(1)
     console.print("[bold cyan]== INITIATING NETWORK SCAN ==[/bold cyan]")
     target_ip = Prompt.ask("[green]Enter target IP[/green]", default="192.169.1.5")
 

@@ -10,7 +10,7 @@ console = Console()
 
 def level6():
     console.print("\n[bold magenta]== LEVEL 6: VULNERABILITY SCAN ==[/bold magenta]")
-    time.sleep(0.5)
+    time.sleep(1)
     console.print("[cyan]Type 'start scanning' to begin scanning the target system...[/cyan]")
 
     while True:

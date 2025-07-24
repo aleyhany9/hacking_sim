@@ -10,7 +10,7 @@ console = Console()
 
 def level5():
     console.print("\n[bold magenta]== LEVEL 5: HASH CHALLENGE ==[/bold magenta]\n")
-    time.sleep(0.5)
+    time.sleep(1)
 
     console.print("[cyan]You've found an encrypted password. Crack it to proceed.[/cyan]")
     time.sleep(0.5)

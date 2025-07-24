@@ -3,6 +3,8 @@ from rich import print
 from rich.prompt import Prompt
 from rich.panel import Panel
 from rich.console import Console
+from game import clear_screen
+from level8 import level8
 
 console = Console()
 
@@ -34,7 +36,11 @@ def level7():
             if cmd in ["./opt/rootme", "sudo /opt/rootme"]:
                 console.print("\n[bold green]Privilege escalated to root![/bold green]")
                 console.print("[cyan]You now have full control over the system.[/cyan]")
-                console.print(Panel.fit("[bold magenta]Level 7 Complete![/bold magenta]\nPrepare for the final challenge...", border_style="green"))
+                console.print(Panel.fit("[bold magenta]Level 7 Complete![/bold magenta]", border_style="green"))
+                time.sleep(3)
+                clear_screen()
+                time.sleep(1)
+                level8()
                 break
             else:
                 console.print("[red]Access denied or command not recognized. Try again.[/red]")
