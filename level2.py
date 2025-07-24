@@ -11,6 +11,7 @@ from rich.panel import Panel
 from rich.console import Console
 from rich.table import Table
 from level3 import level3
+from game import clear_screen
 
 console = Console()
 
@@ -23,7 +24,9 @@ def level2():
     for i in range(0, 101, 20):
         bar = "|" * (i // 5)
         console.print(f"[blue][{bar:<20}][/blue] {i}%")
-        time.sleep(0.3)
+        time.sleep(1)
+    time.sleep(2)    
+    clear_screen()
 
     table = Table(title="Scan Results")
 
@@ -63,6 +66,8 @@ def level2():
         console.print(f"[blue][{bar:<20}][/blue] {i}%")
         time.sleep(0.3)
     console.print("[green]\nConnection stable. Proceeding...[/green]") 
-    console.print("[bold magenta]Level 2 Complete![/bold magenta]\nPrepare for the next challenge...\n")
-    time.sleep(1.5)
+    console.print(Panel.fit("[bold magenta]Level 2 Complete![/bold magenta]", border_style="green"))
+    time.sleep(3)
+    clear_screen()   
+    time.sleep(1)
     level3()   

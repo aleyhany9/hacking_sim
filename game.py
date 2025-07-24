@@ -3,6 +3,7 @@ import base64
 import json
 import os 
 import random
+import os
 
 from rich import print
 from rich.prompt import Prompt
@@ -50,6 +51,8 @@ def boot_screen():
     console.print("[cyan]Welcome, Agent_47.[/cyan]")
     console.print("Type [yellow]help[/yellow] to see the available commands.\n")
 
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def start_game():
     console.print("[bold cyan]Starting new game...[/bold cyan]")
@@ -67,6 +70,7 @@ def main_menu():
             if command == "help":
                 console.print("[yellow]Available commands:[/yellow] start, help, exit")
             elif command == "start":
+                clear_screen()
                 start_game()
             elif command == "exit":
                 console.print("[red]Exiting hacking sim...[/red]")
@@ -82,3 +86,4 @@ if __name__ == "__main__":
         main_menu()
     except KeyboardInterrupt:
         console.print("\n[bold red]User exited during startup.[/bold red]")    
+

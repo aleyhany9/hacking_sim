@@ -6,6 +6,7 @@ def level1():
     from rich.panel import Panel
     import time
     from level2 import level2
+    from game import clear_screen
 
     console = Console()
 
@@ -39,8 +40,9 @@ def level1():
         if guess == correct_password:
             print("[bold green]\nACCESS GRANTED[/bold green]")
             time.sleep(0.5)
-            console.print("[bold magenta]Level 1 Complete![/bold magenta]\nPrepare for the next challenge...")
-            time.sleep(1.5)
+            console.print(Panel.fit("[bold magenta]Level 1 Complete![/bold magenta]", border_style="green"))
+            time.sleep(3)
+            clear_screen()   
             level2()
             break
         else:

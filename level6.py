@@ -3,6 +3,8 @@ from rich import print
 from rich.console import Console
 from rich.prompt import Prompt
 from rich.panel import Panel
+from level7 import level7
+from game import clear_screen
 
 console = Console()
 
@@ -37,10 +39,15 @@ def level6():
     while True:
         choice = Prompt.ask("exploit>").strip().upper()
         if choice == "CVE-2023-23397":
+            time.sleep(0.5)
             console.print("\n[bold green]Exploiting...[/bold green]")
             time.sleep(1.5)
             console.print("[bold cyan]Exploit succesful! Admin shell access granted.[/bold cyan]")
-            console.print("[green]Level 6 complete.[/green]")
+            console.print(Panel.fit("[bold magenta]Level 6 Complete![/bold magenta]", border_style="green"))
+            time.sleep(3)
+            clear_screen() 
+            time.sleep(1)
+            level7()
             break
         elif any(choice == cve for cve, _ in vulns):
             console.print("[red]Exploit failed. No effect on target.[/red]")

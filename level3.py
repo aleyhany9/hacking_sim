@@ -5,6 +5,7 @@ from rich.prompt import Prompt
 from rich.console import Console
 from rich.panel import Panel
 from level4 import level4
+from game import clear_screen
 
 console = Console()
 
@@ -54,11 +55,14 @@ def level3():
                 elif cmd == "ls":
                     console.print("documents/  secrets.txt  logs/")
                 elif cmd == "exit":
+                    console.print(Panel.fit("[bold magenta]Level 3 Complete![/bold magenta]", border_style="green"))
                     console.print("[red]Exiting SSH session...[/red]")
-                    console.print("\n[bold magenta]Level 3 Complete![/bold magenta]\nPrepare for the next challenge...\n")
-                    time.sleep(1)
-                    level4()
+                    time.sleep(3)
+                    clear_screen()         
+                    level4()               
                     break
+
+                    
                 else:
                     console.print("[red]Command not found[/red]")
             break
