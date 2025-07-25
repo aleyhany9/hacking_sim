@@ -3,6 +3,8 @@ from rich import print
 from rich.prompt import Prompt
 from rich.console import Console
 from rich.panel import Panel
+from level10 import level10
+from game import clear_screen
 
 console = Console()
 
@@ -49,5 +51,8 @@ def level9():
     time.sleep(0.5)
 
     console.print(Panel.fit("[bold magenta]Level 9 Complete![/bold magenta]", border_style="cyan"))
+    time.sleep(3)
+    clear_screen()
     time.sleep(1)
+    level10()
     
