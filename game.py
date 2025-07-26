@@ -3,7 +3,6 @@ import base64
 import json
 import os 
 import random
-import os
 
 from rich import print
 from rich.prompt import Prompt
@@ -39,7 +38,7 @@ def boot_screen():
 
 
     stages = [
-        "Bypasing firewall...",
+        "Bypassing firewall...",
         "Spoofing MAC address...",
         "Injecting payload...",
         "ACCESS GRANTED\n"
