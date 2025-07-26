@@ -3,6 +3,8 @@ from rich import print
 from rich.console import Console
 from rich.prompt import Prompt
 from rich.panel import Panel
+from game import clear_screen
+from level12 import level12
 
 console = Console()
 
@@ -44,6 +46,10 @@ Payload: Login success. SessionID=ASD13213
             if answer == "shadow123":
                 console.print("[bold green]Correct! Packet analysis successful.[/bold green]")
                 console.print(Panel.fit("[bold magenta]Level 11 Complete![/bold magenta]", border_style="cyan"))
+                time.sleep(3)
+                clear_screen()
+                time.sleep(1)
+                level12()
                 break
             else:
                 console.print("[red]Incorrect. Try again.[/red]")
