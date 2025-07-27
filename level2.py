@@ -11,10 +11,13 @@ from rich.panel import Panel
 from rich.console import Console
 from rich.table import Table
 from level3 import level3
-from game import clear_screen
 from utils import post_level_menu
+from save_system import save_progress
 
 console = Console()
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def level2():
     console.print("\n[bold magenta]== LEVEL 2 STARTING ==[/bold magenta]")
@@ -67,6 +70,7 @@ def level2():
         console.print(f"[blue][{bar:<20}][/blue] {i}%")
         time.sleep(0.3)
     console.print("[green]\nConnection stable. Proceeding...[/green]") 
+    save_progress(2)
     time.sleep(3)
     clear_screen()
     console.print(Panel.fit("[bold magenta]Level 2 Complete![/bold magenta]", border_style="green"))

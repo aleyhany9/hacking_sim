@@ -5,11 +5,15 @@ def level1():
     from rich.prompt import Prompt
     from rich.panel import Panel
     import time
+    import os
     from level2 import level2
-    from game import clear_screen
     from utils import post_level_menu
+    from save_system import save_progress
 
     console = Console()
+
+    def clear_screen():
+        os.system('cls' if os.name == 'nt' else 'clear')
 
     word_list = [
         "control", "hacking", "network", "access", "system",
@@ -40,6 +44,7 @@ def level1():
 
         if guess == correct_password:
             print("[bold green]\nACCESS GRANTED[/bold green]")
+            save_progress(1)
             time.sleep(3)
             clear_screen()
             console.print(Panel.fit("[bold magenta]Level 1 Complete![/bold magenta]", border_style="green"))

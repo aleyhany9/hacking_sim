@@ -1,13 +1,17 @@
 import time
+import os
 from rich import print
 from rich.console import Console
 from rich.prompt import Prompt
 from rich.panel import Panel
-from game import clear_screen
 from level12 import level12
 from utils import post_level_menu
+from save_system import save_progress
 
 console = Console()
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def level11():
     console.print("\n[bold magenta]== LEVEL 11: PACKET ANALYSIS ==[/bold magenta]")
@@ -46,6 +50,7 @@ Payload: Login success. SessionID=ASD13213
             answer = Prompt.ask("Password>").strip()
             if answer == "shadow123":
                 console.print("[bold green]Correct! Packet analysis successful.[/bold green]")
+                save_progress(11)
                 time.sleep(3)
                 clear_screen()
                 time.sleep(0.5)

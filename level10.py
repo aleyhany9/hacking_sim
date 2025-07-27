@@ -1,13 +1,17 @@
 import time
+import os
 from rich import print
 from rich.prompt import Prompt
 from rich.console import Console
 from rich.panel import Panel
-from game import clear_screen
 from level11 import level11
 from utils import post_level_menu
+from save_system import save_progress
 
 console = Console()
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def level10():
     console.print("\n[bold magenta]== LEVEL 10: REVERSE SHELL DEFENSE ==[/bold magenta]")
@@ -47,6 +51,7 @@ def level10():
             console.print("[green]Reverse shell terminated successfully![/green]")
             time.sleep(0.7)
             console.print("\n[bold green]System secured. Well done, Agent_47.[/bold green]")
+            save_progress(10)
             time.sleep(3)
             clear_screen()
             time.sleep(0.5)

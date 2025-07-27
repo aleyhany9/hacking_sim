@@ -1,13 +1,17 @@
 import time
+import os
 from rich import print
 from rich.prompt import Prompt
 from rich.console import Console
 from rich.panel import Panel
 from level10 import level10
-from game import clear_screen
 from utils import post_level_menu
+from save_system import save_progress
 
 console = Console()
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def level9():
     console.print("\n[bold magenta]== LEVEL 9: PASSWORD CRACKING ==[/bold magenta]")
@@ -50,6 +54,7 @@ def level9():
 
     console.print("[cyan]Access granted. Admin credentials unlocked.[/cyan]")      
     time.sleep(0.5)
+    save_progress(9)
 
     time.sleep(3)
     clear_screen()

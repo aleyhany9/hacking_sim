@@ -1,13 +1,17 @@
 import time
+import os
 from rich import print
 from rich.prompt import Prompt
 from rich.console import Console
 from rich.panel import Panel
 from level6 import level6
-from game import clear_screen
 from utils import post_level_menu
+from save_system import save_progress
 
 console = Console()
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def level5():
     console.print("\n[bold magenta]== LEVEL 5: HASH CHALLENGE ==[/bold magenta]\n")
@@ -27,6 +31,7 @@ def level5():
 
     if guess == original_password:
         console.print("[bold green]Correct! You've cracked the hash.[/bold green]")
+        save_progress(5)
         time.sleep(3)
         clear_screen() 
         time.sleep(0.5)

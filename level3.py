@@ -1,14 +1,18 @@
 import time
 import random
+import os
 from rich import print
 from rich.prompt import Prompt
 from rich.console import Console
 from rich.panel import Panel
 from level4 import level4
-from game import clear_screen
 from utils import post_level_menu
+from save_system import save_progress
 
 console = Console()
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def level3():
     console.print("\n[bold magenta]== LEVEL 3 STARTING ==[/bold magenta]")
@@ -57,6 +61,7 @@ def level3():
                     console.print("documents/  secrets.txt  logs/")
                 elif cmd == "exit":
                     console.print("[red]Exiting SSH session...[/red]")
+                    save_progress(3)
                     time.sleep(3)
                     clear_screen()         
                     console.print(Panel.fit("[bold magenta]Level 3 Complete![/bold magenta]", border_style="green"))

@@ -5,10 +5,13 @@ from rich.prompt import Prompt
 from rich.console import Console
 from rich.panel import Panel
 from level5 import level5
-from game import clear_screen
 from utils import post_level_menu
+from save_system import save_progress
 
 console = Console()
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def level4():
     console.print("\n[bold magenta]== LEVEL 4: FILE EXTRACTION ==[/bold magenta]")
@@ -37,6 +40,7 @@ def level4():
     console.print(f"\n[bold green]{selected} successfully extracted![/bold green]")
     time.sleep(0.5)
 
+    save_progress(4)
     time.sleep(3)
     clear_screen()
     time.sleep(0.5)

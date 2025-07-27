@@ -1,13 +1,17 @@
 import time
+import os
 from rich import print
 from rich.console import Console
 from rich.prompt import Prompt
 from rich.panel import Panel
 from level7 import level7
-from game import clear_screen
 from utils import post_level_menu
+from save_system import save_progress
 
 console = Console()
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def level6():
     console.print("\n[bold magenta]== LEVEL 6: VULNERABILITY SCAN ==[/bold magenta]")
@@ -44,6 +48,7 @@ def level6():
             console.print("\n[bold green]Exploiting...[/bold green]")
             time.sleep(1.5)
             console.print("[bold cyan]Exploit succesful! Admin shell access granted.[/bold cyan]")
+            save_progress(6)
             time.sleep(3)
             clear_screen()
             time.sleep(0.5) 

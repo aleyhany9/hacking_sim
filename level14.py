@@ -1,14 +1,16 @@
 import time
+import os
 import pyfiglet
 from rich import print
 from rich.console import Console
 from rich.prompt import Prompt
 from rich.panel import Panel
-from game import clear_screen
-from utils import post_level_menu
+from save_system import save_progress
 
 console = Console()
 
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def cinematic_ending():
     time.sleep(1)
@@ -33,7 +35,6 @@ def cinematic_ending():
     ))
     console.print("\n[italic cyan]Thanks for playing.[/italic cyan] [bold green]Stay anonymous.[/bold green]")
 
-
 def level14():
     console.print("\n[bold magenta]== LEVEL 14: FINAL DECRYPTION ==[/bold magenta]")
     time.sleep(1)
@@ -53,8 +54,10 @@ def level14():
             if password == "omegaoverride":
                 console.print("\n[bold green]Decryption successful![/bold green]")
                 console.print(Panel.fit("[cyan]MISSION COMPLETE[/cyan]\n[bold magenta]You've completed the HACKNET simulation![/bold magenta]", border_style="green"))
+                save_progress(14)
+                time.sleep(2)
+                cinematic_ending() 
                 break
-
             else:
                 console.print("[red]Wrong passphrase. Try again.[/red]")
         else:

@@ -1,13 +1,17 @@
 import time
+import os
 from rich import print
 from rich.console import Console
 from rich.prompt import Prompt
 from rich.panel import Panel
-from game import clear_screen
 from level9 import level9
 from utils import post_level_menu
+from save_system import save_progress
 
 console = Console()
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def level8():
     console.print("\n[bold magenta]== LEVEL 8: DATA EXFILTRATION ==[/bold magenta]")
@@ -36,7 +40,8 @@ def level8():
                 console.print(f"[blue][{bar:<10}][/blue] {i}%")
                 time.sleep(0.5)
             time.sleep(1)    
-            console.print("\n[bold green]Data exfiltration complete! Mission accomplished.[/bold green]")  
+            console.print("\n[bold green]Data exfiltration complete! Mission accomplished.[/bold green]") 
+            save_progress(8) 
             time.sleep(3)
             clear_screen()
             time.sleep(0.5)

@@ -1,13 +1,17 @@
 import time
+import os
 from rich import print
 from rich.console import Console
 from rich.prompt import Prompt
 from rich.panel import Panel
-from game import clear_screen
 from level14 import level14
 from utils import post_level_menu
+from save_system import save_progress
 
 console = Console()
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def level13():
     console.print("\n[bold magenta]== LEVEL 13: LOG CLEANING ==[/bold magenta]")
@@ -38,6 +42,7 @@ def level13():
             console.print("\n[bold green]All logs cleared successfully.[/bold green]")    
             time.sleep(0.5)
             console.print("[cyan]System appears clean. No traces left behind.[/cyan]")
+            save_progress(13)
             time.sleep(3)
             clear_screen()
             console.print(Panel.fit("[bold green]Tracks covered.[/bold green]\n[bold cyan]Level 13 complete.[/bold cyan]", border_style="magenta"))
