@@ -5,6 +5,7 @@ from rich.console import Console
 from rich.panel import Panel
 from game import clear_screen
 from level11 import level11
+from utils import post_level_menu
 
 console = Console()
 
@@ -46,11 +47,12 @@ def level10():
             console.print("[green]Reverse shell terminated successfully![/green]")
             time.sleep(0.7)
             console.print("\n[bold green]System secured. Well done, Agent_47.[/bold green]")
-            console.print(Panel.fit("[bold magenta]Level 10 Complete![/bold magenta]", border_style="cyan"))
             time.sleep(3)
             clear_screen()
-            time.sleep(1)
-            level11()
+            time.sleep(0.5)
+            console.print(Panel.fit("[bold magenta]Level 10 Complete![/bold magenta]", border_style="cyan"))
+            time.sleep(0.5)
+            post_level_menu(restart_callback=level10, next_level_callback=lambda: (clear_screen(), level11()))
             break
         else:
             console.print("[red]Command failed. Shell is still active![/red]")

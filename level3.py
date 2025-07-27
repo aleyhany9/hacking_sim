@@ -6,6 +6,7 @@ from rich.console import Console
 from rich.panel import Panel
 from level4 import level4
 from game import clear_screen
+from utils import post_level_menu
 
 console = Console()
 
@@ -55,11 +56,11 @@ def level3():
                 elif cmd == "ls":
                     console.print("documents/  secrets.txt  logs/")
                 elif cmd == "exit":
-                    console.print(Panel.fit("[bold magenta]Level 3 Complete![/bold magenta]", border_style="green"))
                     console.print("[red]Exiting SSH session...[/red]")
                     time.sleep(3)
                     clear_screen()         
-                    level4()               
+                    console.print(Panel.fit("[bold magenta]Level 3 Complete![/bold magenta]", border_style="green"))
+                    post_level_menu(restart_callback=level3, next_level_callback=lambda: (clear_screen(), level4()))              
                     break
 
                     

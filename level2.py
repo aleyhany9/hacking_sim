@@ -12,6 +12,7 @@ from rich.console import Console
 from rich.table import Table
 from level3 import level3
 from game import clear_screen
+from utils import post_level_menu
 
 console = Console()
 
@@ -27,7 +28,6 @@ def level2():
         console.print(f"[blue][{bar:<20}][/blue] {i}%")
         time.sleep(1)
     time.sleep(2)    
-    clear_screen()
 
     table = Table(title="Scan Results")
 
@@ -67,8 +67,8 @@ def level2():
         console.print(f"[blue][{bar:<20}][/blue] {i}%")
         time.sleep(0.3)
     console.print("[green]\nConnection stable. Proceeding...[/green]") 
-    console.print(Panel.fit("[bold magenta]Level 2 Complete![/bold magenta]", border_style="green"))
     time.sleep(3)
-    clear_screen()   
-    time.sleep(1)
-    level3()   
+    clear_screen()
+    console.print(Panel.fit("[bold magenta]Level 2 Complete![/bold magenta]", border_style="green"))
+    time.sleep(0.5)
+    post_level_menu(restart_callback=level2, next_level_callback=lambda: (clear_screen(), level3()))

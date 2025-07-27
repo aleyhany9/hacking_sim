@@ -5,6 +5,7 @@ from rich.console import Console
 from rich.panel import Panel
 from level10 import level10
 from game import clear_screen
+from utils import post_level_menu
 
 console = Console()
 
@@ -50,9 +51,10 @@ def level9():
     console.print("[cyan]Access granted. Admin credentials unlocked.[/cyan]")      
     time.sleep(0.5)
 
-    console.print(Panel.fit("[bold magenta]Level 9 Complete![/bold magenta]", border_style="cyan"))
     time.sleep(3)
     clear_screen()
-    time.sleep(1)
-    level10()
+    time.sleep(0.5)
+    console.print(Panel.fit("[bold magenta]Level 9 Complete![/bold magenta]", border_style="cyan"))    
+    time.sleep(0.5)
+    post_level_menu(restart_callback=level9, next_level_callback=lambda: (clear_screen(), level10()))
     

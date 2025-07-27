@@ -5,6 +5,7 @@ from rich.prompt import Prompt
 from rich.panel import Panel
 from game import clear_screen
 from level9 import level9
+from utils import post_level_menu
 
 console = Console()
 
@@ -36,12 +37,12 @@ def level8():
                 time.sleep(0.5)
             time.sleep(1)    
             console.print("\n[bold green]Data exfiltration complete! Mission accomplished.[/bold green]")  
-            time.sleep(1)
-            console.print(Panel.fit("[bold magenta]Level 8 Complete![/bold magenta]", border_style="cyan"))
             time.sleep(3)
             clear_screen()
-            time.sleep(1)
-            level9()
+            time.sleep(0.5)
+            console.print(Panel.fit("[bold magenta]Level 8 Complete![/bold magenta]", border_style="cyan"))
+            time.sleep(0.5)
+            post_level_menu(restart_callback=level8, next_level_callback=lambda: (clear_screen(), level9()))
             break
         elif cmd.startswith("exfil") or cmd.startswith("scp"):
             console.print("[red]Access denied or wrong file. Try again with 'flag.txt'.[/red]")

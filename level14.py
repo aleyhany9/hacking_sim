@@ -5,6 +5,7 @@ from rich.console import Console
 from rich.prompt import Prompt
 from rich.panel import Panel
 from game import clear_screen
+from utils import post_level_menu
 
 console = Console()
 
@@ -52,7 +53,6 @@ def level14():
             if password == "omegaoverride":
                 console.print("\n[bold green]Decryption successful![/bold green]")
                 console.print(Panel.fit("[cyan]MISSION COMPLETE[/cyan]\n[bold magenta]You've completed the HACKNET simulation![/bold magenta]", border_style="green"))
-                cinematic_ending()
                 break
 
             else:

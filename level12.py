@@ -5,6 +5,7 @@ from rich.prompt import Prompt
 from rich.panel import Panel
 from game import clear_screen
 from level13 import level13
+from utils import post_level_menu
 
 console = Console()
 
@@ -26,12 +27,12 @@ def level12():
             console.print("\n[bold green]Backdoor successfully implanted.[/bold green]")    
             time.sleep(0.5)
             console.print("[cyan]Persistence enabled via cronjob entry.[/cyan]")
-            time.sleep(0.5)
-            console.print(Panel.fit("  [bold green]Remote access secured.[/bold green]\n[bold cyan]Level 12 complete.[/bold cyan]", border_style="magenta"))
             time.sleep(3)
             clear_screen()
             time.sleep(0.5)
-            level13()
+            console.print(Panel.fit("  [bold green]Remote access secured.[/bold green]\n[bold cyan]Level 12 complete.[/bold cyan]", border_style="magenta"))
+            time.sleep(0.5)
+            post_level_menu(restart_callback=level12, next_level_callback=lambda: (clear_screen(), level13()))
             break
         else:
             console.print("[red]Invalid command. Try again.[/red]")

@@ -6,6 +6,7 @@ from rich.console import Console
 from rich.panel import Panel
 from level5 import level5
 from game import clear_screen
+from utils import post_level_menu
 
 console = Console()
 
@@ -36,8 +37,9 @@ def level4():
     console.print(f"\n[bold green]{selected} successfully extracted![/bold green]")
     time.sleep(0.5)
 
-    console.print(Panel.fit("[bold magenta]Level 4 Complete![/bold magenta]", border_style="green"))
     time.sleep(3)
-    clear_screen() 
-    time.sleep(1)
-    level5()
+    clear_screen()
+    time.sleep(0.5)
+    console.print(Panel.fit("[bold magenta]Level 4 Complete![/bold magenta]", border_style="green")) 
+    time.sleep(0.5)
+    post_level_menu(restart_callback=level4, next_level_callback=lambda: (clear_screen(), level5()))

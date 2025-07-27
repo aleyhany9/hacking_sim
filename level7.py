@@ -5,6 +5,7 @@ from rich.panel import Panel
 from rich.console import Console
 from game import clear_screen
 from level8 import level8
+from utils import post_level_menu
 
 console = Console()
 
@@ -36,11 +37,12 @@ def level7():
             if cmd in ["./opt/rootme", "sudo /opt/rootme"]:
                 console.print("\n[bold green]Privilege escalated to root![/bold green]")
                 console.print("[cyan]You now have full control over the system.[/cyan]")
-                console.print(Panel.fit("[bold magenta]Level 7 Complete![/bold magenta]", border_style="green"))
                 time.sleep(3)
                 clear_screen()
-                time.sleep(1)
-                level8()
+                time.sleep(0.5)
+                console.print(Panel.fit("[bold magenta]Level 7 Complete![/bold magenta]", border_style="green"))
+                time.sleep(0.5)
+                post_level_menu(restart_callback=level7, next_level_callback=lambda: (clear_screen(), level8()))
                 break
             else:
                 console.print("[red]Access denied or command not recognized. Try again.[/red]")

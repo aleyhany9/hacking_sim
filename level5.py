@@ -5,6 +5,7 @@ from rich.console import Console
 from rich.panel import Panel
 from level6 import level6
 from game import clear_screen
+from utils import post_level_menu
 
 console = Console()
 
@@ -26,10 +27,11 @@ def level5():
 
     if guess == original_password:
         console.print("[bold green]Correct! You've cracked the hash.[/bold green]")
-        console.print(Panel.fit("[bold magenta]Level 5 Complete![/bold magenta]", border_style="green"))
         time.sleep(3)
         clear_screen() 
-        time.sleep(1)
-        level6()
+        time.sleep(0.5)
+        console.print(Panel.fit("[bold magenta]Level 5 Complete![/bold magenta]", border_style="green"))
+        time.sleep(0.5)
+        post_level_menu(restart_callback=level5, next_level_callback=lambda: (clear_screen(), level6()))
     else:
         console.print("[bold red]Wrong password. Try again later.[/bold red]")
