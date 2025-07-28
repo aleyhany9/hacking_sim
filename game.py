@@ -3,6 +3,7 @@ import base64
 import json
 import os 
 import random
+import pyfiglet
 
 from rich import print
 from rich.prompt import Prompt
@@ -45,6 +46,13 @@ def slow_print_rich(text, delay=0.03):
     print()
 
 
+def show_title_screen():
+    banner = pyfiglet.figlet_format("HACKNET SIM")
+    console.print(f"[bold green]{banner}[/bold green]")
+    console.print("[cyan]A terminal hacking simulation game[/cyan]")
+    console.print("[magenta]Created by: chill-noob[/magenta]\n")
+
+
 def boot_screen():
     console.print("[bold green]+-------------------------------------+[/bold green]")
     console.print("[bold green]|        HACKNET v1.0 INITIALIZING    |[/bold green]")
@@ -83,7 +91,7 @@ def main_menu():
             command = Prompt.ask(">>").strip().lower()
 
             if command == "help":
-                console.print("[yellow]Available commands:[/yellow] start, levels, help, exit")
+                console.print("[yellow]Available commands:[/yellow] start, levels, help, exit, info")
             elif command == "start":
                 clear_screen()
                 start_game()
@@ -92,16 +100,28 @@ def main_menu():
                 break
             elif command == "levels":
                 level_selection_menu()
+            elif command == "info":
+                console.print(Panel.fit(
+                    "[bold green]Hacknet Sim v1.0[/bold green]\n"
+                    "[cyan]Built with Python + Rich[/cyan]\n\n"
+                    "Created by: chill-noob\n"
+                    "GitHub: github.com/aleyhany9\n",
+                    title="About", border_style="bright_blue"
+                ))
             else:
                 console.print("[red]Unknown command. Type 'help'[/red]")
     except KeyboardInterrupt:
         console.print("\n[bold red]User exited with ctrl+c.[/bold red]")
 
 
+def main():
+    show_title_screen()
+    boot_screen()
+    main_menu()
+
 if __name__ == "__main__":
     try:
-        boot_screen()
-        main_menu()
+        main()
     except KeyboardInterrupt:
         console.print("\n[bold red]User exited during startup.[/bold red]")    
 
